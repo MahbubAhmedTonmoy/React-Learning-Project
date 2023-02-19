@@ -7,7 +7,7 @@ import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Signup from "./pages/Signup";
 
-import { Auth as AuthProvider } from "../contexts/AuthContext";
+import { AuthProvider } from "../contexts/AuthContext";
 function App() {
   return (
     <Router>
@@ -15,7 +15,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/singup" element={<Signup />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/result" element={<Result />} />
