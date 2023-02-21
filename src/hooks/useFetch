@@ -1,0 +1,51 @@
+import { useEffect, useState } from "react";
+
+/**
+ * 
+ * @param url 
+ * @param method 
+ * @param headers 
+ * @returns loading,error,result
+ * 
+ * how to call
+ * const { loading, error, result } = useFetch(
+    `https://api.pexels.com/v1/search?query=${getKeyword}&per_page=1`,
+    "GET",
+    {
+      Authorization: process.env.REACT_APP_PEXELS_API_KEY,
+    }
+  );
+ */
+export default function useFetch(url, method, headers) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    async function requestFetch() {
+      try {
+        setLoading(true);
+        setError(false);
+        const response = await fetch(url, {
+          method: method || "GET",
+          headers: headers,
+        });
+        const data = await response.json();
+        setLoading(false);
+        setResult(data);
+      } catch (err) {
+        console.log(err);
+        setLoading(false);
+        setError(true);
+      }
+    }
+    requestFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return {
+    loading,
+    error,
+    result,
+  };
+}

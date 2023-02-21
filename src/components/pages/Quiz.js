@@ -80,6 +80,7 @@ export default function Quiz() {
       [id]: qna,
     });
 
+    // send next page with state qna
     navigate.push({
       pathname: `/result/${id}`,
       state: {
@@ -103,6 +104,7 @@ export default function Quiz() {
           <Answers
             options={qna[currentQuestion].options}
             handleChange={handleAnswerChange}
+            input
           />
           <ProgressBar
             next={nextQuestion}
