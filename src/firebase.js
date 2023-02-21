@@ -10,5 +10,7 @@ const app = initializeApp({
   messagingSenderId: "950767384405",
   appId: "1:950767384405:web:9a95eb8896d2a0ada3e1dc",
   measurementId: "G-6M0QQ4565N",
+  databaseURL:
+    "https://development-2203a-default-rtdb.asia-southeast1.firebasedatabase.app",
 });
 export default app;
